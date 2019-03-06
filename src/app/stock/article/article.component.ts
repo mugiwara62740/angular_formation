@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Input} from '@angular/core';
 import { Stock } from '../../model/stock';
 
 @Component({
@@ -8,24 +8,16 @@ import { Stock } from '../../model/stock';
 })
 export class ArticleComponent implements OnInit {
 
-  public stocks : Array<Stock>;
+  @Input() public stock: Stock;
   constructor() { }
 
   ngOnInit() {
-    this.stocks = [
-        new Stock('Test Stock Company', 'TSC', 85, 80),
-        new Stock('Second Stock Company', 'SSC', 10, 20),
-        new Stock('Last Stock Company', 'LSC', 876, 765)
-    ];
+   
   }
     
-  toggleFavorite(event,index) {
+  toggleFavorite(event) {
       console.log('We are toggling the favorite state for this stock', event);
-      this.stocks[index].favorite = !this.stocks[index].favorite;
-  }
-    
-  trackStockByCode(index, stock) {
-    return stock.code;
+      this.stock.favorite = !this.stock.favorite;
   }
 
 }

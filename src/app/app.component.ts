@@ -1,4 +1,5 @@
 import { Component , ViewEncapsulation } from '@angular/core';
+import { Stock } from './model/stock';
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,8 @@ import { Component , ViewEncapsulation } from '@angular/core';
 })
 export class AppComponent {
   title = 'magasin';
+    public stockObj: Stock;
+    ngOnInit(): void {
+        this.stockObj = new Stock('Test Stock Company', 'TSC', 85, 80);
+    }
 }
