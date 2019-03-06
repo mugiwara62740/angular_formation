@@ -1,4 +1,4 @@
-import { Component, OnInit , Input} from '@angular/core';
+import { Component, OnInit , Input, Output, EventEmitter } from '@angular/core';
 import { Stock } from '../../model/stock';
 
 @Component({
@@ -9,15 +9,14 @@ import { Stock } from '../../model/stock';
 export class ArticleComponent implements OnInit {
 
   @Input() public stock: Stock;
-  constructor() { }
-
-  ngOnInit() {
-   
+  @Output() private toggleFavorite: EventEmitter<Stock>;
+    
+  constructor() { 
+    this.toggleFavorite = new EventEmitter<Stock>();
   }
     
-  toggleFavorite(event) {
-      console.log('We are toggling the favorite state for this stock', event);
-      this.stock.favorite = !this.stock.favorite;
+  onToggleFavorite(event) {
+      this.toggleFavorite.emit(this.stock);
   }
 
 }

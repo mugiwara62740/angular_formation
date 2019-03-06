@@ -13,4 +13,9 @@ export class AppComponent {
     ngOnInit(): void {
         this.stockObj = new Stock('Test Stock Company', 'TSC', 85, 80);
     }
+    
+    onToggleFavorite(stock: Stock) {
+        console.log('Favorite for stock ', stock, ' was triggered');
+        this.stockObj.favorite = !this.stockObj.favorite;
+    }
 }
