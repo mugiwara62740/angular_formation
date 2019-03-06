@@ -1,7 +1,7 @@
 <div class="stock-container">
     <div class="name">{{stock.name + ' (' + stock.code + ')'}}</div>
     <div class="price"
-        [ngClass]="stockClasses">
+        [ngStyle]="stockStyles">
         $ {{stock.price}}
     </div>
     <button (click)="toggleFavorite($event)"
