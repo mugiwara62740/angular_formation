@@ -23,5 +23,9 @@ export class ArticleComponent implements OnInit {
       console.log('We are toggling the favorite state for this stock', event);
       this.stocks[index].favorite = !this.stocks[index].favorite;
   }
+    
+  trackStockByCode(index, stock) {
+    return stock.code;
+  }
 
 }
