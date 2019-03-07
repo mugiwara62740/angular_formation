@@ -7,7 +7,7 @@ import { Stock } from '../../model/stock';
   styleUrls: ['./article.component.css'],
   changeDetection : ChangeDetectionStrategy.OnPush
 })
-export class ArticleComponent implements OnInit {
+export class ArticleComponent {
 
   @Input() public stock: Stock;
   @Output() private toggleFavorite: EventEmitter<Stock>;
