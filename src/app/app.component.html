@@ -5,5 +5,7 @@
   <app-article [stock]="stockObj"
                (toggleFavorite)="onToggleFavorite($event)">
   </app-article>
+  <button (click)="changeStockObject()">Change Stock</button>
+  <button (click)="changeStockPrice()">Change Price</button>
 </div>
 

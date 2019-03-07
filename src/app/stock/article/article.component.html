@@ -9,4 +9,5 @@
     <div [style.background-color]="stock.isPositiveChange() ? 'green' : 'red'">Test Alternative style binding</div>
     <button (click)="onToggleFavorite($event)"
         *ngIf="!stock.favorite">Add to Favorite</button>
+    <button (click)="changeStockPrice()">Change Price</button>
 </div>
