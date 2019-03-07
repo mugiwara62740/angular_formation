@@ -2,7 +2,7 @@ import { Component, SimpleChanges, OnInit,
 OnChanges, OnDestroy, DoCheck, AfterViewChecked,
 AfterViewInit, AfterContentChecked,
 AfterContentInit, Input,
-Output, EventEmitter } from '@angular/core';
+Output, EventEmitter} from '@angular/core';
 import { Stock } from '../../model/stock';
 
 @Component({
@@ -10,7 +10,10 @@ import { Stock } from '../../model/stock';
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.css']
 })
-export class ArticleComponent {
+export class ArticleComponent implements OnInit,
+OnChanges, OnDestroy, DoCheck, AfterViewChecked,
+AfterViewInit, AfterContentChecked,
+AfterContentInit{
 
   @Input() public stock: Stock;
   @Output() private toggleFavorite: EventEmitter<Stock>;
