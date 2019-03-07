@@ -2,11 +2,5 @@
     {{title}}
 </h1>
 <app-article [stock]="stockObj"
-             (toggleFavorite)="onToggleFavorite($event)"
-             >
-    <button (click)="testMethod()">With Button 1</button>
-</app-article>
-<app-article [stock]="stockObj"
              (toggleFavorite)="onToggleFavorite($event)">
-    No buttons for you!!
 </app-article>
