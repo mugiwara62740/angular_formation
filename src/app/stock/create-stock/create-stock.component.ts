@@ -21,4 +21,6 @@ export class CreateStockComponent {
     onSubmit() {
         console.log('Stock Form Value', this.stockForm.value);
     }
+    get name() { return this.stockForm.get('name'); }
+
 }
