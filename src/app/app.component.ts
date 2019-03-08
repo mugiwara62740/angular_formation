@@ -46,7 +46,7 @@ AfterContentInit, AfterViewChecked, AfterViewInit {
     changeStockObject() {
         // This will update the value in the stock item component
         // Because we are creating a new reference for the stock input
-        this.stockObj = new Stock('Test Stock Company - ' + this.counter++, 'TSC', 85, 80);
+        this.stockObj = new Stock('Test Stock Company - ' + this.counter++, 'TSC', 85, 80, 'NASDAQ' );
     }
     changeStockPrice() {
         // This will not update the value in the stock item component
