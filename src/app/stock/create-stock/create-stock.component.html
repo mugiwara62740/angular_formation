@@ -3,20 +3,20 @@
     <form [formGroup]="stockForm" (ngSubmit)="onSubmit()">
         <div class="stock-name">
             <input type="text"
-            placeholder="Stock Name"
-            name="stockName"
-            formControlName="name">
-            <div *ngIf="name.invalid && ( name.dirty || name.touched )">
+                   placeholder="Stock Name"
+                   name="stockName"
+                   formControlName="name">
+            <div *ngIf="stockForm.get('name').invalid && ( stockForm.get('name').dirty || stockForm.get('name').touched )">
                 Name is required
             </div>
         </div>
         <div class="stock-code">
             <input type="text"
-            placeholder="Stock Code"
-            formControlName="code">
+                   placeholder="Stock Code"
+                   formControlName="code">
             <div *ngIf="stockForm.get('code').invalid &&
-            ( stockForm.get('code').dirty ||
-            stockForm.get('code').touched )">
+                        ( stockForm.get('code').dirty ||
+                        stockForm.get('code').touched )">
                 <div *ngIf="stockForm.get('code').errors.required">
                     Stock Code is required
                 </div>
@@ -27,11 +27,11 @@
         </div>
         <div class="stock-price">
             <input type="number"
-            placeholder="Stock Price"
-            formControlName="price">
+                   placeholder="Stock Price"
+                   formControlName="price">
             <div *ngIf="stockForm.get('price').invalid &&
-            ( stockForm.get('price').dirty ||
-            stockForm.get('price').touched )">
+                        ( stockForm.get('price').dirty ||
+                        stockForm.get('price').touched )">
                 <div *ngIf="stockForm.get('price').errors.required">
                     Stock Price is required
                 </div>
@@ -41,6 +41,18 @@
             </div>
         </div>
         <button type="submit">Submit</button>
+        <button type="button"
+                (click)="resetForm()">
+            Reset
+        </button>
+        <button type="button"
+                (click)="loadStockFromServer()">
+            Simulate Stock Load from Server
+        </button>
+        <button type="button"
+                (click)="patchStockForm()">
+            Patch Stock Form
+        </button>
     </form>
 </div>
 <p>Form Control value: {{ stockForm.value | json }}</p>
