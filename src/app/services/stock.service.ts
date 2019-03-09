@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { throwError as ObservableThrow} from "rxjs"
-import { of as ObservableOf } from 'rxjs';
 import { Stock } from '../model/stock';
-
 @Injectable()
 export class StockService {
-
-    private stocks: Stock[];
-    constructor(private http : HttpClient) {
-    }
-
+    constructor(private http: HttpClient) {}
     getStocks() : Observable<Stock[]> {
-        return this.http.get<Stock[]>('/api/stock');
+        return this.http.get<Stock[]>('/api/stock', {
+            headers: new HttpHeaders()
+            .set('Authorization', 'MyAuthorizationHeaderValue')
+            .set('X-EXAMPLE-HEADER', 'TestValue'),
+            params: {
+                q: 'test',
+                test: 'value'
+            }
+        });
     }
 
     createStock(stock: Stock): Observable<any> {
