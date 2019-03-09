@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpEvent, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Stock } from '../model/stock';
 @Injectable()
@@ -13,7 +13,28 @@ export class StockService {
             params: {
                 q: 'test',
                 test: 'value'
-            }
+            },
+            observe: 'body'
+        });
+    }
+    getStocksAsResponse(): Observable<HttpResponse<Stock[]>> {
+        return this.http.get<Stock[]>('/api/stock', {
+            observe: 'response'
+        });
+    }
+    getStocksAsEvents(): Observable<HttpEvent<any>> {
+        return this.http.get('/api/stock', {
+            observe: 'events'
+        });
+    }
+    getStocksAsString(): Observable<string> {
+        return this.http.get('/api/stock', {
+            responseType: 'text'
+        });
+    }
+    getStocksAsBlob(): Observable<Blob> {
+        return this.http.get('/api/stock', {
+            responseType: 'blob'
         });
     }
 
